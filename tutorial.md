@@ -28,10 +28,10 @@ To do realtime computation on Storm, you create what are called "topologies". A 
 Running a topology is straightforward. First, you package all your code and dependencies into a single jar. Then, you run a command like the following:
 
 ```
-storm jar all-my-code.jar backtype.storm.MyTopology arg1 arg2
+storm jar all-my-code.jar org.apache.storm.MyTopology arg1 arg2
 ```
 
-This runs the class `backtype.storm.MyTopology` with the arguments `arg1` and `arg2`. The main function of the class defines the topology and submits it to Nimbus. The `storm jar` part takes care of connecting to Nimbus and uploading the jar.
+This runs the class `org.apache.storm.MyTopology` with the arguments `arg1` and `arg2`. The main function of the class defines the topology and submits it to Nimbus. The `storm jar` part takes care of connecting to Nimbus and uploading the jar.
 
 Since topology definitions are just Thrift structs, and Nimbus is a Thrift service, you can create and submit topologies using any programming language. The above example is the easiest way to do it from a JVM-based language. See [Running topologies on a production cluster](/documentation/Running-topologies-on-a-production-cluster.html) for more information on starting and stopping topologies.
 
@@ -245,7 +245,7 @@ A stream grouping tells a topology how to send tuples between two components. Re
 
 When a task for Bolt A emits a tuple to Bolt B, which task should it send the tuple to?
 
-A "stream grouping" answers this question by telling Storm how to send tuples between sets of tasks. Before we dig into the different kinds of stream groupings, let's take a look at another topology from [storm-starter](http://github.com/apache/storm/blob/master/examples/storm-starter). This [WordCountTopology](https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/WordCountTopology.java) reads sentences off of a spout and streams out of `WordCountBolt` the total number of times it has seen that word before:
+A "stream grouping" answers this question by telling Storm how to send tuples between sets of tasks. Before we dig into the different kinds of stream groupings, let's take a look at another topology from [storm-starter](http://github.com/apache/storm/blob/master/examples/storm-starter). This [WordCountTopology](https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/org/apache/storm/starter/WordCountTopology.java) reads sentences off of a spout and streams out of `WordCountBolt` the total number of times it has seen that word before:
 
 ```java
 TopologyBuilder builder = new TopologyBuilder();

@@ -3,7 +3,7 @@ title: Clojure DSL
 layout: documentation
 documentation: true
 ---
-Storm comes with a Clojure DSL for defining spouts, bolts, and topologies. The Clojure DSL has access to everything the Java API exposes, so if you're a Clojure user you can code Storm topologies without touching Java at all. The Clojure DSL is defined in the source in the [backtype.storm.clojure](https://github.com/apache/storm/blob/0.5.3/src/clj/backtype/storm/clojure.clj) namespace.
+Storm comes with a Clojure DSL for defining spouts, bolts, and topologies. The Clojure DSL has access to everything the Java API exposes, so if you're a Clojure user you can code Storm topologies without touching Java at all. The Clojure DSL is defined in the source in the [org.apache.storm.clojure](https://github.com/apache/storm/blob/0.5.3/src/clj/backtype/storm/clojure.clj) namespace.
 
 This page outlines all the pieces of the Clojure DSL, including:
 
@@ -254,7 +254,7 @@ The following example illustrates how to use this spout in a `spout-spec`:
 
 That's all there is to the Clojure DSL. To submit topologies in remote mode or local mode, just use the `StormSubmitter` or `LocalCluster` classes just like you would from Java.
 
-To create topology configs, it's easiest to use the `backtype.storm.config` namespace which defines constants for all of the possible configs. The constants are the same as the static constants in the `Config` class, except with dashes instead of underscores. For example, here's a topology config that sets the number of workers to 15 and configures the topology in debug mode:
+To create topology configs, it's easiest to use the `org.apache.storm.config` namespace which defines constants for all of the possible configs. The constants are the same as the static constants in the `Config` class, except with dashes instead of underscores. For example, here's a topology config that sets the number of workers to 15 and configures the topology in debug mode:
 
 ```clojure
 {TOPOLOGY-DEBUG true

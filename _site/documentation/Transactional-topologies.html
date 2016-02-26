@@ -176,7 +176,7 @@
 
 <h2 id="the-basics-through-example">The basics through example</h2>
 
-<p>You build transactional topologies by using <a href="/javadoc/apidocs/backtype/storm/transactional/TransactionalTopologyBuilder.html">TransactionalTopologyBuilder</a>. Here&#39;s the transactional topology definition for a topology that computes the global count of tuples from the input stream. This code comes from <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/TransactionalGlobalCount.java">TransactionalGlobalCount</a> in storm-starter.</p>
+<p>You build transactional topologies by using <a href="/javadoc/apidocs/backtype/storm/transactional/TransactionalTopologyBuilder.html">TransactionalTopologyBuilder</a>. Here&#39;s the transactional topology definition for a topology that computes the global count of tuples from the input stream. This code comes from <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/org/apache/storm/starter/TransactionalGlobalCount.java">TransactionalGlobalCount</a> in storm-starter.</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">MemoryTransactionalSpout</span> <span class="n">spout</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MemoryTransactionalSpout</span><span class="o">(</span><span class="n">DATA</span><span class="o">,</span> <span class="k">new</span> <span class="n">Fields</span><span class="o">(</span><span class="s">"word"</span><span class="o">),</span> <span class="n">PARTITION_TAKE_PER_BATCH</span><span class="o">);</span>
 <span class="n">TransactionalTopologyBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransactionalTopologyBuilder</span><span class="o">(</span><span class="s">"global-count"</span><span class="o">,</span> <span class="s">"spout"</span><span class="o">,</span> <span class="n">spout</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
 <span class="n">builder</span><span class="o">.</span><span class="na">setBolt</span><span class="o">(</span><span class="s">"partial-count"</span><span class="o">,</span> <span class="k">new</span> <span class="n">BatchCount</span><span class="o">(),</span> <span class="mi">5</span><span class="o">)</span>
@@ -284,7 +284,7 @@
 
 <p>The code for <code>finishBatch</code> in <code>UpdateGlobalCount</code> gets the current value from the database and compares its transaction id to the transaction id for this batch. If they are the same, it does nothing. Otherwise, it increments the value in the database by the partial count for this batch.</p>
 
-<p>A more involved transactional topology example that updates multiple databases idempotently can be found in storm-starter in the <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/TransactionalWords.java">TransactionalWords</a> class.</p>
+<p>A more involved transactional topology example that updates multiple databases idempotently can be found in storm-starter in the <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/org/apache/storm/starter/TransactionalWords.java">TransactionalWords</a> class.</p>
 
 <h2 id="transactional-topology-api">Transactional Topology API</h2>
 

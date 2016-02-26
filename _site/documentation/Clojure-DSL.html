@@ -90,7 +90,7 @@
 
 <p class="post-meta"></p>
 
-<p>Storm comes with a Clojure DSL for defining spouts, bolts, and topologies. The Clojure DSL has access to everything the Java API exposes, so if you&#39;re a Clojure user you can code Storm topologies without touching Java at all. The Clojure DSL is defined in the source in the <a href="https://github.com/apache/storm/blob/0.5.3/src/clj/backtype/storm/clojure.clj">backtype.storm.clojure</a> namespace.</p>
+<p>Storm comes with a Clojure DSL for defining spouts, bolts, and topologies. The Clojure DSL has access to everything the Java API exposes, so if you&#39;re a Clojure user you can code Storm topologies without touching Java at all. The Clojure DSL is defined in the source in the <a href="https://github.com/apache/storm/blob/0.5.3/src/clj/backtype/storm/clojure.clj">org.apache.storm.clojure</a> namespace.</p>
 
 <p>This page outlines all the pieces of the Clojure DSL, including:</p>
 
@@ -310,7 +310,7 @@
 
 <p>That&#39;s all there is to the Clojure DSL. To submit topologies in remote mode or local mode, just use the <code>StormSubmitter</code> or <code>LocalCluster</code> classes just like you would from Java.</p>
 
-<p>To create topology configs, it&#39;s easiest to use the <code>backtype.storm.config</code> namespace which defines constants for all of the possible configs. The constants are the same as the static constants in the <code>Config</code> class, except with dashes instead of underscores. For example, here&#39;s a topology config that sets the number of workers to 15 and configures the topology in debug mode:</p>
+<p>To create topology configs, it&#39;s easiest to use the <code>org.apache.storm.config</code> namespace which defines constants for all of the possible configs. The constants are the same as the static constants in the <code>Config</code> class, except with dashes instead of underscores. For example, here&#39;s a topology config that sets the number of workers to 15 and configures the topology in debug mode:</p>
 <div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">{</span><span class="n">TOPOLOGY-DEBUG</span><span class="w"> </span><span class="n">true</span><span class="w">
  </span><span class="n">TOPOLOGY-WORKERS</span><span class="w"> </span><span class="mi">15</span><span class="p">}</span><span class="w">
 </span></code></pre></div>

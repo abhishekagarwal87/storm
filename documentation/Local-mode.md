@@ -8,7 +8,7 @@ Local mode simulates a Storm cluster in process and is useful for developing and
 To create an in-process cluster, simply use the `LocalCluster` class. For example:
 
 ```java
-import backtype.storm.LocalCluster;
+import org.apache.storm.LocalCluster;
 
 LocalCluster cluster = new LocalCluster();
 ```
